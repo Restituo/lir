@@ -31,15 +31,14 @@ log.setLevel('all');
 var action = process.argv[2];
 //Argument to request specific information
 //Based on above action type
-var argument = "";
+var argument = process.argv.splice(3).join(" ");
 
 //Controller function that determines the action taken and the specific data needed for the action
 handleAction(action, argument);
 
 //switch function to determine which action to take
 function handleAction(action, argument) {
-  argument = getArgument();
-
+ 
   switch (action) {
     //concert this
     case "concert-this":
@@ -83,20 +82,6 @@ function handleAction(action, argument) {
     doWhatItSays();
     break;
   }
-}
-
-//Returns the argument
-//Example being returns the artist's name when requesting concert information
-function getArgument() {
-  
-  //Stores all arguments in an array
-  argumentArray = process.argv;
-
-  //Loops through all the items within the node argument
-  for (var i = 3; i < argumentArray.length; i++) {
-    argument += argumentArray[i];
-  }
-  return argument;
 }
 
 //concert-this

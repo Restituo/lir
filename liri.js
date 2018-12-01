@@ -31,7 +31,7 @@ log.setLevel('all');
 var action = process.argv[2];
 //Argument to request specific information
 //Based on above action type
-var argument = process.argv.splice(3).join(" ");
+var argument = process.argv.slice(3).join(" ");
 
 //Controller function that determines the action taken and the specific data needed for the action
 handleAction(action, argument);
